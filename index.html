@@ -4,31 +4,47 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#10131c">
-  <meta name="description" content="oli: un espacio sencillo para escribir y probar código desde tu navegador.">
+  <meta name="description" content="oli: un espacio sencillo para crear y organizar proyectos web.">
   <title>oli — espacio de creación</title>
   <style>
     :root{color-scheme:dark;--bg:#0c0f16;--panel:#131722;--raised:#191f2c;--line:#30394a;--text:#f4f6fb;--muted:#c0c9d8;--accent:#c4f36b;--blue:#92b6ff;--radius:14px;--editor-size:18px}
     *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}body{min-width:320px}button,a,textarea{font:inherit}button{color:inherit;cursor:pointer}button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}a{color:inherit;text-decoration:none}
-    .app{min-height:100vh;display:grid;grid-template-rows:66px 1fr}.topbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;padding:9px 16px;background:#10131cf5;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:9px;font-size:22px;font-weight:850;letter-spacing:-.05em}.brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--accent);color:#17200c;font-size:23px}.project-name{margin-left:8px;padding-left:14px;border-left:1px solid var(--line);font-size:14px}.spacer{flex:1}.save-status{color:var(--muted);font-size:13px}.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:8px 13px;border:1px solid var(--line);border-radius:10px;background:var(--raised);font-weight:700}.button:hover{background:#252d3b}.button.run{border-color:var(--accent);background:var(--accent);color:#17200c}.button.run:hover{background:#d6ff8c}.button.small{min-height:42px;padding:7px 10px}.workspace{display:grid;grid-template-columns:205px minmax(0,1fr);min-height:calc(100vh - 66px)}.sidebar{display:flex;flex-direction:column;gap:5px;padding:17px 11px;border-right:1px solid var(--line);background:#10131c}.side-title{margin:8px 9px;color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.07em}.side-link{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 10px;border:1px solid transparent;border-radius:10px;color:#e3e8f1;font-weight:650}.side-link.active,.side-link:hover{border-color:#3a465b;background:var(--raised)}.side-icon{width:24px;color:var(--accent);text-align:center;font-size:19px}.sidebar-note{margin-top:auto;padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--muted);font-size:13px}.sidebar-note strong{display:block;color:var(--text);margin-bottom:4px}main{min-width:0;padding:17px}.page-head{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1450px;margin:0 auto 13px}.page-head h1{margin:0;font-size:clamp(22px,3vw,30px);letter-spacing:-.03em}.page-head p{margin:4px 0 0;color:var(--muted);font-size:14px}.tools{display:flex;gap:7px}.layout{display:grid;grid-template-columns:185px minmax(0,1fr) minmax(260px,38%);gap:10px;max-width:1450px;min-height:min(720px,calc(100vh - 160px));margin:auto}.panel{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel)}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:48px;padding:7px 11px;border-bottom:1px solid var(--line);background:#171c28}.panel-title{font-size:14px;font-weight:800}.files-panel{display:flex;flex-direction:column}.file-list{display:grid;gap:4px;padding:8px}.file-button{display:flex;align-items:center;gap:9px;width:100%;min-height:43px;padding:7px 9px;border:1px solid transparent;border-radius:9px;background:transparent;text-align:left;color:#e2e7f0}.file-button:hover,.file-button.selected{border-color:#3a465b;background:var(--raised)}.file-glyph{color:var(--blue)}.new-file{margin:7px 8px 9px}.editor-panel{display:flex;flex-direction:column}.filename{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px}.code-editor{display:block;flex:1;width:100%;min-height:420px;resize:vertical;padding:16px;border:0;background:#0f131c;color:#f4f6fb;font:var(--editor-size)/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;tab-size:2;white-space:pre;overflow:auto}.editor-hint{margin:0;padding:8px 11px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}.preview-panel{display:flex;flex-direction:column}.preview-tabs{display:flex;gap:5px}.tab{min-height:37px;padding:5px 9px;border:1px solid transparent;border-radius:8px;background:transparent;color:var(--muted);font-size:13px;font-weight:700}.tab.active{border-color:var(--line);background:var(--panel);color:var(--text)}.preview-view{flex:1;min-height:250px;background:white}.preview-frame{display:block;width:100%;height:100%;min-height:250px;border:0;background:white}.console{height:205px;overflow:auto;border-top:1px solid var(--line);background:#0b0e14;color:#e4e9f2;font:13px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace}.console-empty{padding:11px;color:var(--muted)}.console-line{padding:7px 10px;border-bottom:1px solid #252b37;white-space:pre-wrap;overflow-wrap:anywhere}.console-line.error{color:#ff9292}.console-line.warn{color:#f5d38a}.console-line.info{color:var(--blue)}.console-footer{display:flex;justify-content:space-between;padding:5px 9px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}.console-footer button{border:0;background:transparent;color:var(--blue)}.toast{position:fixed;right:14px;bottom:14px;z-index:10;max-width:min(440px,calc(100vw - 28px));padding:13px 15px;border:1px solid #58663e;border-radius:12px;background:#222b19;color:#eff8df;box-shadow:0 10px 35px #0008}.toast[hidden]{display:none}
+    .app{min-height:100vh;display:grid;grid-template-rows:66px 1fr}.topbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;padding:9px 16px;background:#10131cf5;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:9px;font-size:22px;font-weight:850;letter-spacing:-.05em}.brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--accent);color:#17200c;font-size:23px}.project-name{margin-left:8px;padding-left:14px;border-left:1px solid var(--line);font-size:14px}.spacer{flex:1}.save-status{color:var(--muted);font-size:13px}.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:8px 13px;border:1px solid var(--line);border-radius:10px;background:var(--raised);font-weight:700}.button:hover{background:#252d3b}.button.run{border-color:var(--accent);background:var(--accent);color:#17200c}.button.run:hover{background:#d6ff8c}.button.small{min-height:42px;padding:7px 10px}.icon-button{display:none;width:42px;height:42px;padding:0;border:1px solid var(--line);border-radius:10px;background:var(--raised);font-size:22px}
+    .workspace{display:grid;grid-template-columns:270px minmax(0,1fr);min-height:calc(100vh - 66px)}.sidebar{position:relative;display:flex;flex-direction:column;gap:5px;padding:13px 10px;border-right:1px solid var(--line);background:#10131c}.menu-top{display:flex;justify-content:flex-end;align-items:center;min-height:28px}.search-button{border:0;background:transparent;color:var(--muted);font-size:21px}.menu-select{position:relative}.menu-select-button{display:flex;align-items:center;gap:10px;width:100%;min-height:53px;padding:8px 10px;border:1px solid #3a465b;border-radius:11px;background:var(--raised);text-align:left;font-size:15px}.menu-select-button .arrow{margin-left:auto;color:var(--muted)}.workspace-avatar{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;border-radius:50%;background:#087f75;color:#fff;font-weight:800}.dropdown{position:absolute;left:0;right:0;top:calc(100% + 7px);z-index:8;padding:9px;border:1px solid var(--line);border-radius:13px;background:#1a1d24;box-shadow:0 16px 38px #0009}.dropdown[hidden]{display:none}.dropdown-heading{padding:5px 9px;color:var(--muted);font-size:13px}.dropdown-item{display:flex;align-items:center;gap:10px;width:100%;min-height:45px;padding:8px 10px;border:0;border-radius:9px;background:transparent;text-align:left}.dropdown-item:hover,.dropdown-item[aria-current="true"]{background:#2a2d34}.dropdown-item .check{margin-left:auto;color:var(--accent)}.divider{height:1px;margin:6px 0;background:var(--line)}.menu-link{display:flex;align-items:center;gap:11px;min-height:46px;padding:8px 10px;border-radius:9px;color:#e3e8f1}.menu-link:hover,.menu-link.active{background:var(--raised)}.side-icon{display:inline-grid;width:24px;place-items:center;color:#e2e7f0;font-size:19px}.projects-heading{display:flex;align-items:center;justify-content:space-between;margin:13px 7px 4px;color:var(--muted);font-size:13px}.recent-list{display:grid;gap:3px;max-height:28vh;overflow:auto}.recent-project{display:flex;align-items:center;gap:10px;min-height:48px;padding:7px 9px;border:1px solid transparent;border-radius:10px;background:transparent;text-align:left}.recent-project:hover,.recent-project.active{border-color:#3a465b;background:#20232b}.project-icon{color:var(--blue)}.recent-project-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.empty-projects{padding:8px 10px;color:var(--muted);font-size:13px}.sidebar-note{margin-top:auto;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--muted);font-size:12px}.sidebar-note strong{display:block;color:var(--text);margin-bottom:3px}
+    main{min-width:0;padding:17px}.page-head{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1450px;margin:0 auto 13px}.page-head h1{margin:0;font-size:clamp(22px,3vw,30px);letter-spacing:-.03em}.page-head p{margin:4px 0 0;color:var(--muted);font-size:14px}.tools{display:flex;gap:7px}.layout{display:grid;grid-template-columns:185px minmax(0,1fr) minmax(260px,38%);gap:10px;max-width:1450px;min-height:min(720px,calc(100vh - 160px));margin:auto}.panel{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel)}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:48px;padding:7px 11px;border-bottom:1px solid var(--line);background:#171c28}.panel-title{font-size:14px;font-weight:800}.files-panel{display:flex;flex-direction:column}.file-list{display:grid;gap:4px;padding:8px}.file-button{display:flex;align-items:center;gap:9px;width:100%;min-height:43px;padding:7px 9px;border:1px solid transparent;border-radius:9px;background:transparent;text-align:left;color:#e2e7f0}.file-button:hover,.file-button.selected{border-color:#3a465b;background:var(--raised)}.file-glyph{color:var(--blue)}.new-file{margin:7px 8px 9px}.editor-panel{display:flex;flex-direction:column}.filename{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px}.code-editor{display:block;flex:1;width:100%;min-height:420px;resize:vertical;padding:16px;border:0;background:#0f131c;color:#f4f6fb;font:var(--editor-size)/1.7 ui-monospace,SFMono-Regular,Consolas,monospace;tab-size:2;white-space:pre;overflow:auto}.editor-hint{margin:0;padding:8px 11px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}.preview-panel{display:flex;flex-direction:column}.preview-tabs{display:flex;gap:5px}.tab{min-height:37px;padding:5px 9px;border:1px solid transparent;border-radius:8px;background:transparent;color:var(--muted);font-size:13px;font-weight:700}.tab.active{border-color:var(--line);background:var(--panel);color:var(--text)}.preview-view{flex:1;min-height:250px;background:white}.preview-frame{display:block;width:100%;height:100%;min-height:250px;border:0;background:white}.console{height:205px;overflow:auto;border-top:1px solid var(--line);background:#0b0e14;color:#e4e9f2;font:13px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace}.console-empty{padding:11px;color:var(--muted)}.console-line{padding:7px 10px;border-bottom:1px solid #252b37;white-space:pre-wrap;overflow-wrap:anywhere}.console-line.error{color:#ff9292}.console-line.warn{color:#f5d38a}.console-line.info{color:var(--blue)}.console-footer{display:flex;justify-content:space-between;padding:5px 9px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}.console-footer button{border:0;background:transparent;color:var(--blue)}.overlay{display:none}.toast{position:fixed;right:14px;bottom:14px;z-index:10;max-width:min(440px,calc(100vw - 28px));padding:13px 15px;border:1px solid #58663e;border-radius:12px;background:#222b19;color:#eff8df;box-shadow:0 10px 35px #0008}.toast[hidden]{display:none}
     @media(max-width:1050px){.layout{grid-template-columns:160px minmax(0,1fr)}.preview-panel{grid-column:1/-1;min-height:400px}.preview-view,.preview-frame{min-height:275px}.console{height:165px}}
-    @media(max-width:700px){.app{grid-template-rows:58px 1fr}.topbar{gap:8px;padding:7px 9px}.brand{font-size:20px}.brand-mark{width:35px;height:35px}.project-name{margin-left:1px;padding-left:9px;font-size:12px}.save-status{display:none}.button{min-height:44px;padding:7px 10px}.workspace{display:block;min-height:calc(100vh - 58px)}.sidebar{position:sticky;top:58px;z-index:4;flex-direction:row;gap:4px;overflow-x:auto;padding:5px 8px;border-right:0;border-bottom:1px solid var(--line)}.side-title,.sidebar-note{display:none}.side-link{flex:0 0 auto;min-height:40px;padding:5px 9px;font-size:13px;white-space:nowrap}.side-icon{width:19px;font-size:17px}main{padding:12px 9px 22px}.page-head{align-items:flex-start;flex-direction:column;margin-bottom:10px}.page-head p{font-size:13px}.tools{width:100%}.tools .button{flex:1}.layout{grid-template-columns:1fr;gap:8px;min-height:0}.files-panel .panel-head{min-height:42px}.file-list{display:flex;gap:5px;overflow-x:auto;padding:6px}.file-button{flex:0 0 auto;min-height:39px;padding:5px 8px}.new-file{margin:4px 7px 7px}.editor-panel{min-height:430px}.code-editor{min-height:360px;padding:13px}.preview-panel{grid-column:auto;min-height:400px}.preview-view,.preview-frame{min-height:270px}.console{height:150px}}
+    @media(max-width:700px){.app{grid-template-rows:58px 1fr}.topbar{gap:7px;padding:6px 8px}.icon-button{display:inline-grid;place-items:center;flex:0 0 40px;width:40px;height:40px}.brand{font-size:19px;gap:6px}.brand-mark{width:34px;height:34px}.project-name{max-width:35vw;margin-left:1px;padding-left:8px;overflow:hidden;font-size:12px;text-overflow:ellipsis;white-space:nowrap}.save-status{display:none}.button{min-height:43px;padding:7px 9px}.workspace{display:block;min-height:calc(100vh - 58px)}.sidebar{position:fixed;inset:58px auto 0 0;z-index:12;width:min(88vw,370px);padding:11px 10px calc(18px + env(safe-area-inset-bottom));border-right:1px solid var(--line);box-shadow:12px 0 38px #0008;overflow-y:auto;transform:translateX(-105%);transition:transform .22s ease}.sidebar.open{transform:translateX(0)}.overlay{position:fixed;inset:58px 0 0;z-index:11;display:block;background:#0009}.overlay[hidden]{display:none}.menu-top{min-height:32px}.recent-list{max-height:31vh}.sidebar-note{margin-top:auto}.side-title{display:none}main{padding:12px 9px 22px}.page-head{align-items:flex-start;flex-direction:column;margin-bottom:10px}.page-head p{font-size:13px}.tools{width:100%}.tools .button{flex:1}.layout{grid-template-columns:1fr;gap:8px;min-height:0}.files-panel .panel-head{min-height:42px}.file-list{display:flex;gap:5px;overflow-x:auto;padding:6px}.file-button{flex:0 0 auto;min-height:40px;padding:5px 8px}.new-file{margin:4px 7px 7px}.editor-panel{min-height:430px}.code-editor{min-height:360px;padding:13px}.preview-panel{grid-column:auto;min-height:400px}.preview-view,.preview-frame{min-height:270px}.console{height:150px}}
+    @media(prefers-reduced-motion:reduce){.sidebar{transition:none}}
   </style>
 </head>
 <body>
   <div class="app">
     <header class="topbar">
+      <button class="icon-button" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
       <a class="brand" href="#inicio" aria-label="oli, inicio"><span class="brand-mark" aria-hidden="true">o</span><span>oli</span></a>
-      <span class="project-name">Mi primer proyecto</span><span class="spacer"></span>
+      <span class="project-name" id="topProjectName">Mi primer proyecto</span><span class="spacer"></span>
       <span class="save-status" id="saveStatus" aria-live="polite">Guardado en este dispositivo</span>
       <button class="button run" id="runButton" type="button">▶ <span>Ejecutar</span></button>
     </header>
     <div class="workspace">
-      <aside class="sidebar" aria-label="Navegación principal">
-        <span class="side-title">Espacio de trabajo</span>
-        <a class="side-link" href="#inicio"><span class="side-icon" aria-hidden="true">⌂</span>Inicio</a>
-        <a class="side-link active" href="#editor"><span class="side-icon" aria-hidden="true">▤</span>Editor</a>
-        <a class="side-link" href="#archivos"><span class="side-icon" aria-hidden="true">▣</span>Archivos</a>
-        <div class="sidebar-note"><strong>Vamos paso a paso</strong>Tu trabajo se guarda en este navegador. Usa A+ si necesitas letras más grandes.</div>
+      <aside class="sidebar" id="sidebar" aria-label="Menú y proyectos">
+        <div class="menu-top"><button class="search-button" id="searchProjects" type="button" aria-label="Buscar proyecto">⌕</button></div>
+        <div class="menu-select">
+          <button class="menu-select-button" id="workspaceMenuButton" type="button" aria-expanded="false"><span class="workspace-avatar">M</span><span>Espacio personal</span><span class="arrow">⌄</span></button>
+          <div class="dropdown" id="workspaceDropdown" hidden><div class="dropdown-heading">Tus espacios</div><button class="dropdown-item" type="button" aria-current="true"><span class="workspace-avatar">M</span>Personal<span class="check">✓</span></button><div class="divider"></div><button class="dropdown-item" type="button" data-notice="La creación de espacios compartidos será una mejora posterior.">＋ Crear espacio de trabajo</button></div>
+        </div>
+        <div class="menu-select">
+          <button class="menu-select-button" id="newMenuButton" type="button" aria-expanded="false"><span aria-hidden="true">⊕</span><span>Nuevo</span><span class="arrow">⌄</span></button>
+          <div class="dropdown" id="newDropdown" hidden><div class="dropdown-heading">Crear algo nuevo</div><button class="dropdown-item" type="button" data-new-project="Sitio web">▣ Sitio web</button><button class="dropdown-item" type="button" data-new-project="Aplicación móvil">▯ Aplicación móvil</button><button class="dropdown-item" type="button" data-new-project="Proyecto vacío">＋ Proyecto vacío</button><button class="dropdown-item" type="button" data-notice="La importación directa desde Replit todavía no está conectada.">⇧ Importar proyecto</button></div>
+        </div>
+        <div class="divider"></div>
+        <a class="menu-link" href="#editor"><span class="side-icon">◷</span>Resumen</a>
+        <a class="menu-link" href="#archivos"><span class="side-icon">▤</span>Archivos</a>
+        <a class="menu-link" href="#editor"><span class="side-icon">▣</span>Biblioteca</a>
+        <a class="menu-link" href="#editor"><span class="side-icon">◇</span>Integraciones</a>
+        <div class="projects-heading"><span>Proyectos recientes</span><span aria-hidden="true">⌄</span></div>
+        <div class="recent-list" id="recentProjects" aria-label="Proyectos recientes"></div>
+        <div class="sidebar-note"><strong>Nota sobre tus proyectos</strong>Esta lista guarda los proyectos creados aquí en este navegador. No se conecta a tu cuenta de Replit ni importa sus proyectos automáticamente.</div>
       </aside>
       <main id="editor">
         <div class="page-head"><div><h1>Tu espacio de creación</h1><p>Escribe, ejecuta y mira el resultado aquí mismo.</p></div>
@@ -42,91 +58,78 @@
       </main>
     </div>
   </div>
+  <button class="overlay" id="drawerOverlay" type="button" aria-label="Cerrar menú" hidden></button>
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
   <script>
     (() => {
       const STORAGE_KEY = 'oli_workspace_v1';
-      const starterFiles = {
+      const STARTER = {
         'index.html': '<main style="font-family:system-ui,sans-serif;padding:24px;color:#202633"><h1>¡Hola! 👋</h1><p>Este es tu primer proyecto. Cambia el texto en <b>index.html</b> y pulsa Ejecutar.</p><button id="helloButton">Pruébame</button><p id="message"></p></main>',
         'style.css': 'body { margin: 0; background: #f4f7ee; }\nbutton { padding: 10px 14px; border: 0; border-radius: 8px; background: #c4f36b; cursor: pointer; }',
         'app.js': 'console.log("¡Hola! Tu proyecto ya está funcionando.");\n\nconst button = document.querySelector("#helloButton");\nbutton?.addEventListener("click", () => {\n  document.querySelector("#message").textContent = "¡Lo lograste! El botón funciona.";\n  console.log("Se pulsó el botón.");\n});'
       };
-      function loadFiles() {
-        try { const saved = JSON.parse(localStorage.getItem(STORAGE_KEY)); if (saved && saved.files && typeof saved.files === 'object' && Object.keys(saved.files).length) return saved.files; } catch (_) {}
-        return {...starterFiles};
+      function makeProject(name, files = {...STARTER}) { return {id: 'p-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name, files, updatedAt: Date.now()}; }
+      function loadState() {
+        try {
+          const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+          if (saved && Array.isArray(saved.projects) && saved.projects.length) return saved;
+          if (saved && saved.files && typeof saved.files === 'object') { const migrated = makeProject('Mi primer proyecto', saved.files); return {activeId:migrated.id,projects:[migrated]}; }
+        } catch (_) {}
+        const initial = makeProject('Mi primer proyecto'); return {activeId:initial.id,projects:[initial]};
       }
-      let files = loadFiles();
-      let activeFile = files['app.js'] ? 'app.js' : Object.keys(files)[0];
-      let editorFont = 18;
+      let state = loadState(), activeFile = 'app.js', editorFont = 18, saveTimer, toastTimer;
       try { editorFont = Math.max(14, Math.min(28, Number(localStorage.getItem('oli_editor_font')) || 18)); } catch (_) {}
-      let saveTimer, toastTimer;
-      const list = document.getElementById('fileList'), editor = document.getElementById('codeEditor');
-      const output = document.getElementById('consoleOutput'), frame = document.getElementById('previewFrame');
-      const status = document.getElementById('saveStatus'), toast = document.getElementById('toast');
+      const $ = (id) => document.getElementById(id);
+      const list = $('fileList'), recentList = $('recentProjects'), editor = $('codeEditor'), output = $('consoleOutput'), frame = $('previewFrame'), status = $('saveStatus'), toast = $('toast'), sidebar = $('sidebar'), overlay = $('drawerOverlay'), menuToggle = $('menuToggle');
+      function project() { return state.projects.find(item => item.id === state.activeId) || state.projects[0]; }
+      function files() { return project().files; }
       function showToast(message) { toast.textContent = message; toast.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { toast.hidden = true; }, 4500); }
-      function persist() {
-        try { localStorage.setItem(STORAGE_KEY, JSON.stringify({files})); status.textContent = 'Guardado en este dispositivo'; }
-        catch (_) { status.textContent = 'No se pudo guardar'; showToast('No se pudo guardar en el navegador. El editor seguirá abierto mientras no cierres esta página.'); }
-      }
-      function scheduleSave() { status.textContent = 'Guardando…'; clearTimeout(saveTimer); saveTimer = setTimeout(persist, 350); }
-      function selectFile(name) {
-        if (!(name in files)) return;
-        activeFile = name; document.getElementById('currentFilename').textContent = name; editor.value = files[name];
-        document.getElementById('deleteFileButton').disabled = Object.keys(files).length <= 1;
-        list.querySelectorAll('.file-button').forEach(button => button.classList.toggle('selected', button.dataset.name === name));
+      function persist() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); status.textContent = 'Guardado en este dispositivo'; } catch (_) { status.textContent = 'No se pudo guardar'; showToast('No se pudo guardar. El editor seguirá abierto mientras no cierres esta página.'); } }
+      function scheduleSave() { project().updatedAt = Date.now(); status.textContent = 'Guardando…'; clearTimeout(saveTimer); saveTimer = setTimeout(() => { persist(); renderRecent(); }, 350); }
+      function renderRecent() {
+        recentList.replaceChildren();
+        [...state.projects].sort((a,b) => b.updatedAt-a.updatedAt).forEach(item => {
+          const button = document.createElement('button'); button.type = 'button'; button.className = 'recent-project' + (item.id === state.activeId ? ' active' : ''); button.setAttribute('aria-current', item.id === state.activeId ? 'page' : 'false');
+          const icon = document.createElement('span'); icon.className = 'project-icon'; icon.textContent = '▣';
+          const name = document.createElement('span'); name.className = 'recent-project-name'; name.textContent = item.name; button.append(icon,name);
+          button.addEventListener('click', () => { saveCurrentEditor(); state.activeId = item.id; activeFile = Object.keys(files())[0]; renderProject(); persist(); closeDrawer(); }); recentList.append(button);
+        });
       }
       function renderFiles() {
         list.replaceChildren();
-        Object.keys(files).forEach(name => {
-          const button = document.createElement('button'); button.type = 'button'; button.className = 'file-button' + (name === activeFile ? ' selected' : ''); button.dataset.name = name;
-          const glyph = document.createElement('span'); glyph.className = 'file-glyph'; glyph.setAttribute('aria-hidden', 'true'); glyph.textContent = name.endsWith('.html') ? '◇' : name.endsWith('.css') ? '#' : 'JS';
-          const label = document.createElement('span'); label.textContent = name; button.append(glyph, label); button.addEventListener('click', () => selectFile(name)); list.append(button);
-        });
+        Object.keys(files()).forEach(name => { const button=document.createElement('button');button.type='button';button.className='file-button'+(name===activeFile?' selected':'');button.dataset.name=name;const glyph=document.createElement('span');glyph.className='file-glyph';glyph.setAttribute('aria-hidden','true');glyph.textContent=name.endsWith('.html')?'◇':name.endsWith('.css')?'#':'JS';const label=document.createElement('span');label.textContent=name;button.append(glyph,label);button.addEventListener('click',()=>selectFile(name));list.append(button); });
       }
-      function clearOutput(message = 'Consola limpia. Pulsa «Ejecutar» para probar tu proyecto.') { output.replaceChildren(); const empty = document.createElement('div'); empty.className = 'console-empty'; empty.textContent = message; output.append(empty); }
-      function addLine(kind, text) { if (output.querySelector('.console-empty')) output.replaceChildren(); const line = document.createElement('div'); line.className = 'console-line ' + kind; line.textContent = text; output.append(line); output.scrollTop = output.scrollHeight; }
-      renderFiles(); selectFile(activeFile); editor.style.setProperty('--editor-size', editorFont + 'px');
-      editor.addEventListener('input', () => { files[activeFile] = editor.value; scheduleSave(); });
-      editor.addEventListener('keydown', event => { if (event.key === 'Tab') { event.preventDefault(); editor.setRangeText('  ', editor.selectionStart, editor.selectionEnd, 'end'); editor.dispatchEvent(new Event('input')); } });
-      document.getElementById('newFileButton').addEventListener('click', () => {
-        const name = window.prompt('Escribe un nombre de archivo, por ejemplo: notas.js'); if (!name) return;
-        const clean = name.trim().replace(/[\\/:*?"<>|]/g, '-'); if (!clean) return;
-        if (clean in files) { showToast('Ya existe un archivo con ese nombre.'); return; }
-        files[clean] = ''; activeFile = clean; renderFiles(); selectFile(clean); scheduleSave(); editor.focus();
-      });
-      document.getElementById('deleteFileButton').addEventListener('click', () => {
-        if (Object.keys(files).length <= 1) { showToast('El proyecto necesita conservar al menos un archivo.'); return; }
-        if (!window.confirm('¿Eliminar ' + activeFile + '? Esta acción no se puede deshacer.')) return;
-        delete files[activeFile]; activeFile = Object.keys(files)[0]; renderFiles(); selectFile(activeFile); scheduleSave();
-      });
-      document.getElementById('resetButton').addEventListener('click', () => {
-        if (!window.confirm('Esto reemplazará tus archivos por el ejemplo inicial. ¿Continuar?')) return;
-        files = {...starterFiles}; activeFile = 'app.js'; renderFiles(); selectFile(activeFile); persist(); clearOutput(); showToast('Ejemplo inicial restaurado.');
-      });
-      document.getElementById('fontUp').addEventListener('click', () => setFont(Math.min(28, editorFont + 2)));
-      document.getElementById('fontDown').addEventListener('click', () => setFont(Math.max(14, editorFont - 2)));
-      function setFont(size) { editorFont = size; editor.style.setProperty('--editor-size', editorFont + 'px'); try { localStorage.setItem('oli_editor_font', String(editorFont)); } catch (_) {} }
-      document.getElementById('clearConsole').addEventListener('click', () => clearOutput());
-      document.getElementById('clearConsoleText').addEventListener('click', () => clearOutput());
-      window.addEventListener('message', event => { if (event.source === frame.contentWindow && event.data && event.data.oliWorkspace === true) addLine(event.data.kind || 'log', String(event.data.text || '')); });
-      document.getElementById('runButton').addEventListener('click', () => {
-        files[activeFile] = editor.value; persist(); output.replaceChildren(); addLine('info', 'Ejecutando tu proyecto…');
-        const html = files['index.html'] || '<main style="font-family:system-ui;padding:24px"><h1>Tu proyecto</h1><p>Edita index.html para cambiar esta página.</p></main>';
-        const css = files['style.css'] || '', js = files['app.js'] || '';
-        const openScript = '<scr' + 'ipt>', closeScript = '</scr' + 'ipt>';
-        const bridgeCode = "(function(){function send(kind,args){var text=args.map(function(v){if(typeof v==='string')return v;try{return JSON.stringify(v)}catch(e){return String(v)}}).join(' ');parent.postMessage({oliWorkspace:true,kind:kind,text:text},'*')}['log','info','warn','error'].forEach(function(k){var old=console[k].bind(console);console[k]=function(){var args=Array.from(arguments);old.apply(console,args);send(k,args)}});window.addEventListener('error',function(e){send('error',[e.message+' (línea '+e.lineno+')'])})})();";
-        const safeJs = JSON.stringify(js).replace(/</g, '\\u003c');
-        const bridge = openScript + bridgeCode + closeScript;
-        const runCode = openScript + 'try{(new Function(' + safeJs + '))()}catch(error){console.error(error&&error.stack?error.stack:String(error))}' + closeScript;
-        const styleTag = '<style>' + css.replace(/<\/style/gi, '<\\/style') + '</style>';
-        let page = html;
-        if (/<head[^>]*>/i.test(page)) page = page.replace(/<head[^>]*>/i, match => match + styleTag + bridge);
-        else page = styleTag + bridge + page;
-        if (/<body[^>]*>/i.test(page)) page = page.replace(/<body[^>]*>/i, match => match + runCode);
-        else page += runCode;
-        frame.srcdoc = page;
-      });
-      document.querySelectorAll('.side-link').forEach(link => link.addEventListener('click', () => { document.querySelectorAll('.side-link').forEach(item => item.classList.remove('active')); link.classList.add('active'); }));
+      function selectFile(name) { if (!(name in files())) return; activeFile=name; $('currentFilename').textContent=name; editor.value=files()[name]; $('deleteFileButton').disabled=Object.keys(files()).length<=1; renderFiles(); }
+      function renderProject() { $('topProjectName').textContent=project().name; activeFile=files()['app.js']?'app.js':Object.keys(files())[0]; renderFiles(); selectFile(activeFile); renderRecent(); clearOutput('Pulsa «Ejecutar» para ver aquí los mensajes de tu programa.'); }
+      function saveCurrentEditor() { if (activeFile && activeFile in files()) files()[activeFile]=editor.value; }
+      function clearOutput(message='Consola limpia. Pulsa «Ejecutar» para probar tu proyecto.') { output.replaceChildren(); const empty=document.createElement('div');empty.className='console-empty';empty.textContent=message;output.append(empty); }
+      function addLine(kind,text) { if(output.querySelector('.console-empty'))output.replaceChildren();const line=document.createElement('div');line.className='console-line '+kind;line.textContent=text;output.append(line);output.scrollTop=output.scrollHeight; }
+      function closeDropdowns(except) { [['workspaceMenuButton','workspaceDropdown'],['newMenuButton','newDropdown']].forEach(([buttonId,dropId])=>{if(dropId!==except){$(dropId).hidden=true;$(buttonId).setAttribute('aria-expanded','false');}}); }
+      function toggleDropdown(buttonId,dropId) { const drop=$(dropId),opening=drop.hidden;closeDropdowns(opening?dropId:null);drop.hidden=!opening;$(buttonId).setAttribute('aria-expanded',String(opening)); }
+      function openDrawer() { sidebar.classList.add('open');overlay.hidden=false;menuToggle.setAttribute('aria-expanded','true');menuToggle.setAttribute('aria-label','Cerrar menú'); }
+      function closeDrawer() { sidebar.classList.remove('open');overlay.hidden=true;menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Abrir menú');closeDropdowns(null); }
+      renderProject(); editor.style.setProperty('--editor-size',editorFont+'px');
+      $('workspaceMenuButton').addEventListener('click',()=>toggleDropdown('workspaceMenuButton','workspaceDropdown'));
+      $('newMenuButton').addEventListener('click',()=>toggleDropdown('newMenuButton','newDropdown'));
+      document.addEventListener('click',event=>{if(!event.target.closest('.menu-select'))closeDropdowns(null);});
+      document.querySelectorAll('[data-new-project]').forEach(button=>button.addEventListener('click',()=>{saveCurrentEditor();const name=button.dataset.newProject==='Proyecto vacío'?'Proyecto nuevo':button.dataset.newProject+' nuevo';const item=makeProject(name);state.projects.unshift(item);state.activeId=item.id;activeFile='app.js';renderProject();persist();closeDrawer();showToast('Proyecto creado. Se guarda en este dispositivo.');}));
+      document.querySelectorAll('[data-notice]').forEach(button=>button.addEventListener('click',()=>showToast(button.dataset.notice)));
+      $('searchProjects').addEventListener('click',()=>{const q=window.prompt('Buscar en tus proyectos guardados aquí:');if(q===null)return;const found=state.projects.find(item=>item.name.toLowerCase().includes(q.trim().toLowerCase()));if(found){saveCurrentEditor();state.activeId=found.id;renderProject();closeDrawer();}else showToast('No encontré ese nombre entre los proyectos guardados en este navegador.');});
+      menuToggle.addEventListener('click',()=>sidebar.classList.contains('open')?closeDrawer():openDrawer());overlay.addEventListener('click',closeDrawer);
+      document.querySelectorAll('.menu-link').forEach(link=>link.addEventListener('click',()=>{document.querySelectorAll('.menu-link').forEach(item=>item.classList.remove('active'));link.classList.add('active');if(window.innerWidth<=700)closeDrawer();}));
+      let touchStartX=0,touchStartY=0;
+      document.addEventListener('touchstart',event=>{if(event.touches.length!==1)return;touchStartX=event.touches[0].clientX;touchStartY=event.touches[0].clientY;},{passive:true});
+      document.addEventListener('touchend',event=>{if(event.changedTouches.length!==1)return;const dx=event.changedTouches[0].clientX-touchStartX,dy=event.changedTouches[0].clientY-touchStartY;if(Math.abs(dy)>90)return;if(!sidebar.classList.contains('open')&&touchStartX<32&&dx>75)openDrawer();else if(sidebar.classList.contains('open')&&dx< -75)closeDrawer();},{passive:true});
+      editor.addEventListener('input',()=>{files()[activeFile]=editor.value;scheduleSave();});
+      editor.addEventListener('keydown',event=>{if(event.key==='Tab'){event.preventDefault();editor.setRangeText('  ',editor.selectionStart,editor.selectionEnd,'end');editor.dispatchEvent(new Event('input'));}});
+      $('newFileButton').addEventListener('click',()=>{const name=window.prompt('Escribe un nombre de archivo, por ejemplo: notas.js');if(!name)return;const clean=name.trim().replace(/[\\/:*?"<>|]/g,'-');if(!clean)return;if(clean in files()){showToast('Ya existe un archivo con ese nombre.');return;}files()[clean]='';selectFile(clean);scheduleSave();editor.focus();});
+      $('deleteFileButton').addEventListener('click',()=>{if(Object.keys(files()).length<=1){showToast('El proyecto necesita conservar al menos un archivo.');return;}if(!window.confirm('¿Eliminar '+activeFile+'? Esta acción no se puede deshacer.'))return;delete files()[activeFile];activeFile=Object.keys(files())[0];selectFile(activeFile);scheduleSave();});
+      $('resetButton').addEventListener('click',()=>{if(!window.confirm('Esto reemplazará los archivos de este proyecto por el ejemplo inicial. ¿Continuar?'))return;project().files={...STARTER};activeFile='app.js';renderProject();persist();showToast('Ejemplo inicial restaurado.');});
+      $('fontUp').addEventListener('click',()=>setFont(Math.min(28,editorFont+2)));$('fontDown').addEventListener('click',()=>setFont(Math.max(14,editorFont-2)));
+      function setFont(size){editorFont=size;editor.style.setProperty('--editor-size',editorFont+'px');try{localStorage.setItem('oli_editor_font',String(editorFont));}catch(_){}}
+      $('clearConsole').addEventListener('click',()=>clearOutput());$('clearConsoleText').addEventListener('click',()=>clearOutput());
+      window.addEventListener('message',event=>{if(event.source===frame.contentWindow&&event.data&&event.data.oliWorkspace===true)addLine(event.data.kind||'log',String(event.data.text||''));});
+      $('runButton').addEventListener('click',()=>{saveCurrentEditor();persist();output.replaceChildren();addLine('info','Ejecutando tu proyecto…');const html=files()['index.html']||'<main style="font-family:system-ui;padding:24px"><h1>Tu proyecto</h1><p>Edita index.html para cambiar esta página.</p></main>';const css=files()['style.css']||'',js=files()['app.js']||'';const open='<scr'+'ipt>',close='</scr'+'ipt>';const bridgeCode="(function(){function send(kind,args){var text=args.map(function(v){if(typeof v==='string')return v;try{return JSON.stringify(v)}catch(e){return String(v)}}).join(' ');parent.postMessage({oliWorkspace:true,kind:kind,text:text},'*')}['log','info','warn','error'].forEach(function(k){var old=console[k].bind(console);console[k]=function(){var args=Array.from(arguments);old.apply(console,args);send(k,args)}});window.addEventListener('error',function(e){send('error',[e.message+' (línea '+e.lineno+')'])})})();";const safeJs=JSON.stringify(js).replace(/</g,'\\u003c');const bridge=open+bridgeCode+close;const run=open+'try{(new Function('+safeJs+'))()}catch(error){console.error(error&&error.stack?error.stack:String(error))}'+close;const style='<style>'+css.replace(/<\/style/gi,'<\\/style')+'</style>';let page=html;if(/<head[^>]*>/i.test(page))page=page.replace(/<head[^>]*>/i,match=>match+style+bridge);else page=style+bridge+page;if(/<body[^>]*>/i.test(page))page=page.replace(/<body[^>]*>/i,match=>match+run);else page+=run;frame.srcdoc=page;});
     })();
   </script>
 </body>
